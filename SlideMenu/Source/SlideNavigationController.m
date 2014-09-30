@@ -560,11 +560,26 @@ static SlideNavigationController *singletonInstance;
 	return rect;
 }
 
+- (void)setRightMenu:(UIViewController *)rightMenu
+{
+    [_rightMenu.view removeFromSuperview];
+    _rightMenu = rightMenu;
+}
+
+- (void)setLeftMenu:(UIViewController *)leftMenu
+{
+    [_leftMenu.view removeFromSuperview];
+    _leftMenu = leftMenu;
+}
+
 - (void)prepareMenuForReveal:(Menu)menu
 {
 	// Only prepare menu if it has changed (ex: from MenuLeft to MenuRight or vice versa)
-    if (self.lastRevealedMenu && menu == self.lastRevealedMenu)
-        return;
+    
+    // remove test, we now handle menu removal in setter
+    
+    /*if (self.lastRevealedMenu && menu == self.lastRevealedMenu)
+        return;*/
     
     UIViewController *menuViewController = (menu == MenuLeft) ? self.leftMenu : self.rightMenu;
 	UIViewController *removingMenuViewController = (menu == MenuLeft) ? self.rightMenu : self.leftMenu;
