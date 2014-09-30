@@ -1,3 +1,10 @@
+Forked repository : We had to fork this repo in order to use different view controllers as left or right menus.
+Main updates are :
+* view removal in setter for left / right menu (we don't use property access anymore)
+* remove test on `lastRevealedMenu` in `prepareMenuForReveal` method as we handle view controllers in setters
+
+
+
 iOS-Slide-Menu
 ---------
 iOS Slide Menu built on top of UINavigationController, with configurable buttons, reveal animations, and tap/swiper gesture recognizers.
